@@ -1,10 +1,11 @@
 FROM microsoft/ansible
 
-RUN apt-get update && apt-get install iputils-ping -y
+RUN pip install pywinrm
 RUN mkdir /home/ansible
 
 WORKDIR /home/ansible
 
+COPY playbook/hosts /etc/ansible/hosts
 COPY . .
 
 ENTRYPOINT ["/bin/bash"]
