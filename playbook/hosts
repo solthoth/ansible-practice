@@ -1,7 +1,19 @@
-[win]
-192.168.86.35
+[web-server]
+ansible-practice-web
 
-[win:vars]
+[app-server]
+ansible-practice-app
+
+[windows]
+ansible-practice-web
+ansible-practice-app
+
+[swarm]
+ansible-practice-swarm-master
+ansible-practice-swarm-agent1
+ansible-practice-swarm-agent2
+
+[windows:vars]
 ansible_user=vagrant
 ansible_password=vagrant
 ansible_connection=winrm
