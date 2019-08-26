@@ -18,3 +18,8 @@ ansible_user=vagrant
 ansible_password=vagrant
 ansible_connection=winrm
 ansible_winrm_server_cert_validation=ignore
+
+[swarm:vars]
+ansible_host_key_checking=false
+ansible_remote_user=vagrant
+ansible_su_user=vagrant

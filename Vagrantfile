@@ -1,8 +1,10 @@
 Vagrant.configure("2") do |config|
+#=begin
     config.vm.define "web" do |web|
         web.vm.box = "jborean93/WindowsServer2016"
         web.vm.boot_timeout = 360;
         web.vm.hostname = "ansible-practice-web"
+        web.winrm
         #Cannot configure networks using Hyper-V as a provider
         web.vm.network "private_network", ip: "192.168.100.101"
         web.vm.provision "shell", path: "ConfigureRemotingForAnsible.ps1"
@@ -16,7 +18,7 @@ Vagrant.configure("2") do |config|
         app.vm.network "private_network", ip: "192.168.100.102"
         app.vm.provision "shell", path: "ConfigureRemotingForAnsible.ps1"
     end
-
+#=end
     config.vm.define "swarm-master" do |master|
         master.vm.box = "generic/ubuntu1804"
         master.vm.hostname = "ansible-practice-swarm-master"

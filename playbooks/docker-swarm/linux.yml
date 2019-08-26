@@ -1,0 +1,12 @@
+hosts: linux
+become: true
+pre_tasks:
+    - name: Install python for Ansible
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      register: output
+      changed_when: output.stdout != ""
+tasks:
+- name: ensure python 2.7 is installed
+  apt:
+    name: python2.7
+    state: latest

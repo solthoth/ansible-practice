@@ -5,7 +5,7 @@ RUN mkdir /home/ansible
 
 WORKDIR /home/ansible
 
-COPY playbook/hosts /etc/ansible/hosts
+COPY playbooks/hosts /etc/ansible/hosts
 COPY . .
 
 ENTRYPOINT ["/bin/bash"]
